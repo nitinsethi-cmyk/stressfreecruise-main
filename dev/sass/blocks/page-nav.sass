@@ -38,9 +38,7 @@ $block: ".page-nav"
     color: $c-page-nav_link_cl
 
     // $Page navigation link STATE: highlighted
-    // $Page navigation link MOD: special link
-    &.is-highlighted,
-    &_special
+    &.is-highlighted
       padding: 9px 13px
       border: 1px solid $c-page-nav_link_special_bd
       color: $c-page-nav_link_special_cl
@@ -51,3 +49,17 @@ $block: ".page-nav"
       &:hover
         text-decoration: none
         background: linear-gradient(to top, $c-page-nav_link_special_bg-1, $c-page-nav_link_special_bg-2)
+
+    // $Page navigation link MOD: special link
+    &_special
+      padding: 9px 13px
+      border: 1px solid $c-page-nav_link_special_bd
+      color: $c-page-nav_link_special_bd
+      border-radius: 3px
+      background: transparent
+      transition: all .5s
+
+      &:hover
+        text-decoration: none
+        background: linear-gradient(to top, $c-page-nav_link_special_bg-1, $c-page-nav_link_special_bg-2)
+        color: $c-page-nav_link_special_cl

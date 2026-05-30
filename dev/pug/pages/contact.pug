@@ -1,10 +1,9 @@
 extends ../layouts/base
 
 block variables
-  - pageTitle = 'Home'
-  - pageDescription = 'Page-specific description'
-  - pageKeywords = 'Page-specific keywords'
-
+  - pageTitle = 'Contact Us'
+  - pageDescription = 'Get in touch with our travel planning team.'
+  - pageKeywords = 'contact travel, travel inquiry, tourism support'
 
 block body-content
   // $Page header
@@ -16,11 +15,11 @@ block body-content
 
       // $Page navigation
       nav.page-nav
-        a.page-nav__link.is-highlighted(href='index.html') Home
+        a.page-nav__link(href='index.html') Home
         a.page-nav__link(href='about.html') About us
         a.page-nav__link(href='projects.html') Projects
         a.page-nav__link(href='https://testimonials.stressfreecruise.com/') Testimonials
-        a.page-nav__link.page-nav__link_special(href='contact.html') Contact us
+        a.page-nav__link.page-nav__link_special.is-highlighted(href='contact.html') Contact us
 
   // $Page content
   .page-content
@@ -29,17 +28,16 @@ block body-content
       section.promo
         .promo__inner
           h1.promo__title
-            | I Like To Ask The Same Question
-            span Many Many Times
-          a.promo__button(href='#') Ok ask me
+            | Contact Us
+            span We're here to help
+          a.promo__button(href='#') Send a message
 
       // $Info
       section.info
         .info__places
-
           // $Places
           .places
-            h2.places__title Places You Must Visit In Your Lifetime
+            h2.places__title Reach Out Anytime
             a(href='#').places__link
               span.places__loc.places__loc_1
               | Azheekal
@@ -73,12 +71,11 @@ block body-content
 
         .info__inner
           h3.info__content
-            | We&rsquo;ve since expanded our life list to 43 sites around the world
+            | Send your questions, requests, or booking needs
             br
-            | 43 Places to See Before You Die
+            | and our travel experts will reply quickly.
 
           .info__services
-
             // $Services
             .services
               a(href='#').services__link

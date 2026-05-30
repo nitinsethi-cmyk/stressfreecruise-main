@@ -1,10 +1,9 @@
 extends ../layouts/base
 
 block variables
-  - pageTitle = 'Home'
-  - pageDescription = 'Page-specific description'
-  - pageKeywords = 'Page-specific keywords'
-
+  - pageTitle = 'Projects'
+  - pageDescription = 'View our recent travel and tourism projects.'
+  - pageKeywords = 'projects, travel planning, tourism portfolio'
 
 block body-content
   // $Page header
@@ -16,9 +15,9 @@ block body-content
 
       // $Page navigation
       nav.page-nav
-        a.page-nav__link.is-highlighted(href='index.html') Home
+        a.page-nav__link(href='index.html') Home
         a.page-nav__link(href='about.html') About us
-        a.page-nav__link(href='projects.html') Projects
+        a.page-nav__link.is-highlighted(href='projects.html') Projects
         a.page-nav__link(href='https://testimonials.stressfreecruise.com/') Testimonials
         a.page-nav__link.page-nav__link_special(href='contact.html') Contact us
 
@@ -29,17 +28,16 @@ block body-content
       section.promo
         .promo__inner
           h1.promo__title
-            | I Like To Ask The Same Question
-            span Many Many Times
-          a.promo__button(href='#') Ok ask me
+            | Our Projects
+            span Travel experiences built for you
+          a.promo__button(href='#') View projects
 
       // $Info
       section.info
         .info__places
-
           // $Places
           .places
-            h2.places__title Places You Must Visit In Your Lifetime
+            h2.places__title Featured Destinations
             a(href='#').places__link
               span.places__loc.places__loc_1
               | Azheekal
@@ -73,12 +71,11 @@ block body-content
 
         .info__inner
           h3.info__content
-            | We&rsquo;ve since expanded our life list to 43 sites around the world
+            | These projects highlight our expertise in curated travel
             br
-            | 43 Places to See Before You Die
+            | itineraries and destination planning.
 
           .info__services
-
             // $Services
             .services
               a(href='#').services__link

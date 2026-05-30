@@ -12,7 +12,7 @@ module.exports = {
     files: [{
       expand: true,
       cwd: '<%= paths.dev.helpers %>',
-      src: ['*.*', '.htaccess'],
+      src: ['*.*', '.htaccess', 'CNAME'],
       dest: '<%= paths.build.main %>'
     }]
   },

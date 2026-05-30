@@ -25,6 +25,80 @@ mixin head-src()
 
 
   //- SCRIPTS
+  //- Google Tag Manager
+  script.
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PGPBLWK6');
+
+  //- Google tag (gtag.js)
+  script(async src="https://www.googletagmanager.com/gtag/js?id=G-NQ3SF88XMB")
+  script.
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-NQ3SF88XMB');
+
   //- Head javascript
   if config.modules.headJs
     script(src="static/js/head.min.js")
+
+  //- Amplitude Analytics + Web Experiment SDK (bundled)
+  script(src="https://cdn.amplitude.com/script/13763c810e8e420a211a47efe6d52a1a.js")
+
+  //- Order matters: integration must be registered before amplitude.init triggers experiment fetches.
+  //- getUser is lazy — invoked by the SDK at exposure time, so it reads the real ids set by init below.
+  script.
+    window.experimentIntegration = {
+      getUser: () => {
+        const a = window.amplitude;
+        return {
+          user_id: a && typeof a.getUserId === 'function' ? a.getUserId() : null,
+          device_id: a && typeof a.getDeviceId === 'function' ? a.getDeviceId() : null,
+        };
+      },
+
+      track: (e) => {
+        console.log("  full event payload:", e);
+
+        // Custom track replaces the SDK default, so $exposure won't reach Amplitude unless we send it.
+        if (window.amplitude && typeof window.amplitude.track === 'function') {
+          window.amplitude.track(e.eventType, e.eventProperties);
+        }
+
+        if (typeof gtag === 'function') {
+          gtag('event', 'Amplitude Impression', {
+            flag_key: e.eventProperties.flag_key,
+            experiment_key: e.eventProperties.experiment_key,
+            variant: e.eventProperties.variant,
+          });
+        }
+
+        return true;
+      },
+    };
+
+  //- Amplitude tracking + session replay (init populates user_id/device_id consumed by getUser above)
+  script.
+    window.amplitude.add(window.sessionReplay.plugin({sampleRate: 1}));
+    window.amplitude.init('13763c810e8e420a211a47efe6d52a1a', {"fetchRemoteConfig":true,"autocapture":{"attribution":{"trackingMethod": ["userProperty"]},"fileDownloads":true,"formInteractions":true,"pageViews":true,"sessions":true,"elementInteractions":true,"networkTracking":true,"webVitals":true,"frustrationInteractions":true}});
+
+  //- Amplitude custom_referrer identify
+  script.
+    (function () {
+      if (!window.amplitude) return;
+
+      const storedReferrer = sessionStorage.getItem('amp_original_referrer');
+      const identify = new amplitude.Identify();
+
+      if (storedReferrer) {
+        identify.set('custom_referrer', storedReferrer);
+      } else {
+        identify.unset('custom_referrer');
+      }
+
+      amplitude.identify(identify);
+    })();

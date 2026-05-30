@@ -1,10 +1,9 @@
 extends ../layouts/base
 
 block variables
-  - pageTitle = 'Home'
-  - pageDescription = 'Page-specific description'
-  - pageKeywords = 'Page-specific keywords'
-
+  - pageTitle = 'Testimonials'
+  - pageDescription = 'Read what our travellers say about their journeys with us.'
+  - pageKeywords = 'testimonials, traveller reviews, travel feedback'
 
 block body-content
   // $Page header
@@ -16,11 +15,11 @@ block body-content
 
       // $Page navigation
       nav.page-nav
-        a.page-nav__link.is-highlighted(href='index.html') Home
-        a.page-nav__link(href='about.html') About us
-        a.page-nav__link(href='projects.html') Projects
-        a.page-nav__link(href='https://testimonials.stressfreecruise.com/') Testimonials
-        a.page-nav__link.page-nav__link_special(href='contact.html') Contact us
+        a.page-nav__link(href='https://stressfreecruise.com/index.html') Home
+        a.page-nav__link(href='https://stressfreecruise.com/about.html') About us
+        a.page-nav__link(href='https://stressfreecruise.com/projects.html') Projects
+        a.page-nav__link.is-highlighted(href='/') Testimonials
+        a.page-nav__link.page-nav__link_special(href='https://stressfreecruise.com/contact.html') Contact us
 
   // $Page content
   .page-content
@@ -29,14 +28,13 @@ block body-content
       section.promo
         .promo__inner
           h1.promo__title
-            | I Like To Ask The Same Question
-            span Many Many Times
-          a.promo__button(href='#') Ok ask me
+            | What Our Travellers Say
+            span Stories from the road
+          a.promo__button(href='#') Share your story
 
       // $Info
       section.info
         .info__places
-
           // $Places
           .places
             h2.places__title Places You Must Visit In Your Lifetime
@@ -73,12 +71,11 @@ block body-content
 
         .info__inner
           h3.info__content
-            | We&rsquo;ve since expanded our life list to 43 sites around the world
+            | Real journeys, real voices &mdash; hear how our travellers
             br
-            | 43 Places to See Before You Die
+            | discovered places they&rsquo;ll never forget.
 
           .info__services
-
             // $Services
             .services
               a(href='#').services__link
