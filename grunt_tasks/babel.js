@@ -6,8 +6,7 @@ module.exports = {
   },
   main: {
     files: [{
-      '<%= paths.build.js %>/body.min.js': '<%= paths.build.js %>/body.min.js',
-      '<%= paths.build.js %>/head.min.js': '<%= paths.build.js %>/head.min.js'
+      '<%= paths.build.js %>/body.min.js': '<%= paths.build.js %>/body.min.js'
     }]
   }
 }

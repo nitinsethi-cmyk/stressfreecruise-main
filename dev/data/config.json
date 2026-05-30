@@ -10,7 +10,6 @@
   "modules": {
     "googleFonts": "http://fonts.googleapis.com/css?family=Open+Sans&subset=latin,cyrillic",
     "bodyJs": false,
-    "headJs": false,
     "customCss": true,
     "noscriptCss": false,
     "twitterCard": false,
