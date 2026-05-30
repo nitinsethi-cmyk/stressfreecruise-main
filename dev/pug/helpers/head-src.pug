@@ -80,7 +80,7 @@ mixin head-src()
   //- Amplitude tracking + session replay (init populates user_id/device_id consumed by getUser above)
   script.
     window.amplitude.add(window.sessionReplay.plugin({sampleRate: 1}));
-    window.amplitude.init('13763c810e8e420a211a47efe6d52a1a', {"fetchRemoteConfig":true,"autocapture":{"attribution":{"trackingMethod": ["userProperty"]},"fileDownloads":true,"formInteractions":true,"pageViews":true,"sessions":true,"elementInteractions":true,"networkTracking":true,"webVitals":true,"frustrationInteractions":true}});
+    window.amplitude.init('13763c810e8e420a211a47efe6d52a1a', {"fetchRemoteConfig":true,"autocapture":{"attribution":{"trackingMethod": ["userProperty"],"excludeInternalReferrers":{"condition":"ifEmptyCampaign"},"excludeReferrers":[]},"fileDownloads":true,"formInteractions":true,"pageViews":true,"sessions":true,"elementInteractions":true,"networkTracking":true,"webVitals":true,"frustrationInteractions":true}});
 
   //- Amplitude custom_referrer identify
   script.
