@@ -100,7 +100,16 @@
         <!-- $Promo-->
         <section class="promo">
           <div class="promo__inner">
-            <h1 class="promo__title">I Like To Ask The Same Question<span>Many Many Times</span></h1><a class="promo__button" href="#">Ok ask me</a>
+            <h1 class="promo__title">I Like To Ask The Same Question<span>Many Many Times</span></h1><a class="promo__button" href="#">Ok ask me</a><a class="promo__button" href="contact.html" onclick="return goWithUtm(&quot;contact.html&quot;,&quot;utm_source&quot;)">Contact us</a><a class="promo__button" href="https://testimonials.stressfreecruise.com/" onclick="return goWithUtm(&quot;https://testimonials.stressfreecruise.com/&quot;,&quot;utm_content&quot;)">Testimonials</a>
+            <script>
+              function goWithUtm(base, key) {
+                var n = Math.floor(10000 + Math.random() * 90000);
+                var sep = base.indexOf('?') === -1 ? '?' : '&';
+                window.location.href = base + sep + key + '=' + n;
+                return false;
+              }
+              
+            </script>
           </div>
         </section>
         <!-- $Info-->
