@@ -1,9 +1,11 @@
 extends ../layouts/base
 
 block variables
-  - pageTitle = 'About Us'
-  - pageDescription = 'Learn more about our travel planning and services.'
-  - pageKeywords = 'about travel, tourism, services'
+  - pageTitle = 'Featured Destinations'
+  - pageDescription = 'Explore our hand-picked featured destinations for your next journey.'
+  - pageKeywords = 'featured destinations, travel destinations, places to visit'
+  //- This page runs GTM + GA only — Amplitude is intentionally not instrumented here.
+  - disableAmplitude = true
 
 block body-content
   // $Page header
@@ -16,9 +18,9 @@ block body-content
       // $Page navigation
       nav.page-nav
         a.page-nav__link(href='index.html') Home
-        a.page-nav__link.is-highlighted(href='about.html') About us
+        a.page-nav__link(href='about.html') About us
         a.page-nav__link(href='projects.html') Projects
-        a.page-nav__link(href='featured-destinations.html') Featured Destinations
+        a.page-nav__link.is-highlighted(href='featured-destinations.html') Featured Destinations
         a.page-nav__link(href='https://testimonials.stressfreecruise.com/') Testimonials
         a.page-nav__link.page-nav__link_special(href='contact.html') Contact us
 
@@ -29,16 +31,16 @@ block body-content
       section.promo
         .promo__inner
           h1.promo__title
-            | Discover Who We Are
-            span Your trusted travel partner
-          a.promo__button(href='#') Learn more
+            | Featured Destinations
+            span Hand-picked places worth the trip
+          a.promo__button(href='#') Start exploring
 
       // $Info
       section.info
         .info__places
           // $Places
           .places
-            h2.places__title Places You Must Visit In Your Lifetime
+            h2.places__title Destinations We Love
             a(href='#').places__link
               span.places__loc.places__loc_1
               | Azheekal
@@ -72,9 +74,9 @@ block body-content
 
         .info__inner
           h3.info__content
-            | We combine local travel knowledge with modern planning
+            | A curated selection of the destinations our travellers
             br
-            | to give you the best journey possible.
+            | return to again and again.
 
           .info__services
             // $Services
