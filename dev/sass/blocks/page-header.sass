@@ -36,10 +36,15 @@ $block: ".page-header"
   &__logo
     margin-left: 20px
     float: left
-    font-size: 36px
+    font-family: "Pacifico", cursive
+    font-size: 25px
     line-height: 70px
-    font-weight: bold
+    font-weight: normal
     color: $c-page-header_logo-1_cl
+    text-decoration: none
+
+    &:hover
+      text-decoration: none
 
     @media screen and (max-width:640px)
       float: none
@@ -47,5 +52,5 @@ $block: ".page-header"
       white-space: normal
 
     & span
-      font-size: 30px
+      font-size: 22px
       color: $c-page-header_logo-2_cl
