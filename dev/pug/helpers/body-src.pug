@@ -1,4 +1,17 @@
 mixin body-src()
+  //- dataLayer event for clicks on "Places You Must Visit" location images/titles
+  script.
+    document.addEventListener('click', function (e) {
+      var link = e.target.closest && e.target.closest('.places__link');
+      if (!link) return;
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: 'location_click',
+        LocationTitle: link.textContent.trim(),
+        Pageurl: window.location.href
+      });
+    });
+
   //- Body javascript
   if config.modules.bodyJs
     script(src="static/js/body.min.js")

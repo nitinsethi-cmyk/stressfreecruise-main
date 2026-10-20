@@ -73,5 +73,18 @@
         <p class="page-footer__text">Designed by cssauthor.com | Coded by orlovmax.com</p>
       </div>
     </footer>
+    <script>
+      document.addEventListener('click', function (e) {
+        var link = e.target.closest && e.target.closest('.places__link');
+        if (!link) return;
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: 'location_click',
+          LocationTitle: link.textContent.trim(),
+          Pageurl: window.location.href
+        });
+      });
+      
+    </script>
   </body>
 </html>
